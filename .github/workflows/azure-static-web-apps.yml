@@ -8,7 +8,7 @@ on:
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-    name: Build and Deploy
+    name: Build and Deploy Angular
     steps:
       - uses: actions/checkout@v4
 
@@ -18,10 +18,12 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install 
+        run: npm install
+        working-directory: ./matricula-pucpr
 
       - name: Build Angular
         run: npm run build -- --configuration production
+        working-directory: ./matricula-pucpr
 
       - name: Deploy to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
@@ -29,5 +31,5 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: upload
-          app_location: "/"                         # Onde está o angular.json
-          output_location: "dist/matricula-pucpr"   # Caminho exato do build 
+          app_location: "matricula-pucpr"                      # onde está o angular.json
+          output_location: "matricula-pucpr/dist/matricula-pucpr"  # onde sai o build
