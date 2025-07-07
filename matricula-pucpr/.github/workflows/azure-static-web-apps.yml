@@ -30,4 +30,4 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: upload
           app_location: "/"                         # Onde está o angular.json
-          output_location: "dist/matricula-pucpr"   # Caminho exato do build
+          output_location: "dist/matricula-pucpr"   # Caminho exato do build 
