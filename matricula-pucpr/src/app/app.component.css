@@ -1,0 +1,14 @@
+.container {
+  max-width: 500px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label, input, select, button {
+  margin: 8px 0;
+}
